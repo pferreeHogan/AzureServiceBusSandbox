@@ -1,0 +1,99 @@
+{
+    "UserConfig": {
+      "Namespaces": [
+        {
+          "Name": "sbemulatorns",
+          "Queues": [
+            {
+              "Name": "demoqueue",
+              "Properties": {
+                "DeadLetteringOnMessageExpiration": false,
+                "DefaultMessageTimeToLive": "PT1H",
+                "DuplicateDetectionHistoryTimeWindow": "PT20S",
+                "ForwardDeadLetteredMessagesTo": "",
+                "ForwardTo": "",
+                "LockDuration": "PT1M",
+                "MaxDeliveryCount": 3,
+                "RequiresDuplicateDetection": false,
+                "RequiresSession": false
+              }
+            }
+          ],
+  
+          "Topics": [
+            {
+              "Name": "demotopic",
+              "Properties": {
+                "DefaultMessageTimeToLive": "PT1H",
+                "DuplicateDetectionHistoryTimeWindow": "PT20S",
+                "RequiresDuplicateDetection": false
+              },
+              "Subscriptions": [
+                {
+                  "Name": "demosubscription",
+                  "Properties": {
+                    "DeadLetteringOnMessageExpiration": false,
+                    "DefaultMessageTimeToLive": "PT1H",
+                    "LockDuration": "PT1M",
+                    "MaxDeliveryCount": 3,
+                    "ForwardDeadLetteredMessagesTo": "",
+                    "ForwardTo": "",
+                    "RequiresSession": false
+                  },
+                  "Rules": [
+                    {
+                      "Name": "app-prop-filter-1",
+                      "Properties": {
+                        "FilterType": "Correlation",
+                        "CorrelationFilter": {
+                          "ContentType": "application/json"
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "Name": "subscription.2",
+                  "Properties": {
+                    "DeadLetteringOnMessageExpiration": false,
+                    "DefaultMessageTimeToLive": "PT1H",
+                    "LockDuration": "PT1M",
+                    "MaxDeliveryCount": 3,
+                    "ForwardDeadLetteredMessagesTo": "",
+                    "ForwardTo": "",
+                    "RequiresSession": false
+                  },
+                  "Rules": [
+                    {
+                      "Name": "app-prop-filter-1",
+                      "Properties": {
+                        "FilterType": "Correlation",
+                        "CorrelationFilter": {
+                          "ContentType": "application/json"
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "Name": "subscription.3",
+                  "Properties": {
+                    "DeadLetteringOnMessageExpiration": false,
+                    "DefaultMessageTimeToLive": "PT1H",
+                    "LockDuration": "PT1M",
+                    "MaxDeliveryCount": 3,
+                    "ForwardDeadLetteredMessagesTo": "",
+                    "ForwardTo": "",
+                    "RequiresSession": false
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "Logging": {
+        "Type": "File"
+      }
+    }
+  }
